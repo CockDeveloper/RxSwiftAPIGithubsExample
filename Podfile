@@ -3,11 +3,11 @@
 inhibit_all_warnings!
 
 def rx_swift
-  pod 'RxSwift', '~> 5.0'
+  pod 'RxSwift', '~> 5.0.0'
 end
 
 def rx_cocoa
-  pod 'RxCocoa', '~> 5.0'
+  pod 'RxCocoa', '~> 5.0.0'
 end
 
 def common
@@ -29,4 +29,21 @@ target 'RxSwiftAPIGithubsExample' do
     # Pods for testing
   end
 
+end
+
+target 'NetworkPlatform' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for NetworkPlatform
+  rx_swift
+  #rx_cocoa
+  pod 'Alamofire', '~> 4.8.2'
+  pod 'RxAlamofire', '~> 5.0.0'
+  common
+
+  target 'NetworkPlatformTests' do
+    inherit! :search_paths
+    # Pods for testing
+    end
 end
