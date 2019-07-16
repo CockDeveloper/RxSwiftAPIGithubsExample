@@ -12,7 +12,7 @@ end
 
 def common
   pod 'SwiftyBeaver', '~> 1.7.0'
-  pod 'SwiftLint', '~> 0.33.0'
+  pod 'SwiftLint', '~> 0.33.1'
 end
 
 target 'RxSwiftAPIGithubsExample' do
