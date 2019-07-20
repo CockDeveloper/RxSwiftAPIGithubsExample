@@ -208,16 +208,11 @@
 		2B2FD17222DAF32500596FF6 /* RxSwiftAPIGithubsExample */ = {
 			isa = PBXGroup;
 			children = (
+				2B8BC02622E31E3200F194BC /* Resources */,
+				2B8BC02522E31E0400F194BC /* Support Files */,
+				2B8BC02222E31D2C00F194BC /* Views */,
 				2B08C22A22E2C9FC00843D28 /* Models */,
 				2B23AB5322DB351700A1BA97 /* Extensions */,
-				2B2FD17322DAF32500596FF6 /* AppDelegate.swift */,
-				2B2FD17522DAF32500596FF6 /* MainViewController.swift */,
-				2B2FD17722DAF32500596FF6 /* Main.storyboard */,
-				2B2FD17A22DAF32700596FF6 /* Assets.xcassets */,
-				2B2FD17C22DAF32700596FF6 /* LaunchScreen.storyboard */,
-				2B2FD17F22DAF32700596FF6 /* Info.plist */,
-				2B08C22522E2B6C300843D28 /* RxSwiftAPIGithubsExample-Bridging-Header.h */,
-				2B08C22922E2B7AB00843D28 /* PrefixHeader.pch */,
 			);
 			path = RxSwiftAPIGithubsExample;
 			sourceTree = "<group>";
@@ -229,6 +224,51 @@
 				2B2FD18A22DAF32700596FF6 /* Info.plist */,
 			);
 			path = RxSwiftAPIGithubsExampleTests;
+			sourceTree = "<group>";
+		};
+		2B8BC02222E31D2C00F194BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BC02422E31DCB00F194BC /* Xibs */,
+				2B8BC02322E31D7700F194BC /* Storyboards */,
+				2B2FD17522DAF32500596FF6 /* MainViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2B8BC02322E31D7700F194BC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2B2FD17722DAF32500596FF6 /* Main.storyboard */,
+				2B2FD17C22DAF32700596FF6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2B8BC02422E31DCB00F194BC /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		2B8BC02522E31E0400F194BC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B2FD17322DAF32500596FF6 /* AppDelegate.swift */,
+				2B08C22522E2B6C300843D28 /* RxSwiftAPIGithubsExample-Bridging-Header.h */,
+				2B08C22922E2B7AB00843D28 /* PrefixHeader.pch */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		2B8BC02622E31E3200F194BC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B2FD17A22DAF32700596FF6 /* Assets.xcassets */,
+				2B2FD17F22DAF32700596FF6 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		2BE157D822DD4FFE00DB2FEE /* NetworkPlatform */ = {
