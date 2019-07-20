@@ -18,25 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MW-gm-JUp">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-gm-6ET">
+                                <rect key="frame" x="172.5" y="433" width="69" height="30"/>
+                                <state key="normal" title="APIGithub"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4MW-gm-JUp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Yhj-cY-8su"/>
-                            <constraint firstAttribute="bottom" secondItem="4MW-gm-JUp" secondAttribute="bottom" id="ZVf-qN-5Sh"/>
-                            <constraint firstItem="4MW-gm-JUp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nDw-um-DrJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4MW-gm-JUp" secondAttribute="trailing" id="qHZ-fh-25A"/>
+                            <constraint firstItem="BQb-gm-6ET" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Qvz-6d-a4m"/>
+                            <constraint firstItem="BQb-gm-6ET" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aZE-YP-ljo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="Psm-XG-BNn"/>
                     <connections>
-                        <outlet property="textView" destination="4MW-gm-JUp" id="nSy-Th-9bV"/>
+                        <segue destination="eJ0-P4-bHL" kind="presentation" identifier="gotoGithub" id="xDy-3J-Jdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,6 +56,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoB-F7-1FV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="766.74107142857144"/>
+        </scene>
+        <!--Github-->
+        <scene sceneID="LAK-Xr-Ttl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Github" id="eJ0-P4-bHL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDL-5c-ceg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786" y="122"/>
         </scene>
     </scenes>
 </document>

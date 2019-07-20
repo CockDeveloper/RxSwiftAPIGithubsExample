@@ -13,7 +13,6 @@ import NetworkPlatform
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var textView: UITextView!
 
     let disposeBag = DisposeBag()
 
