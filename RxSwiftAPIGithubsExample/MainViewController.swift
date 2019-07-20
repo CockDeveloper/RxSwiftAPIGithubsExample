@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  RxSwiftAPIGithubsExample
 //
 //  Created by Nguyễn Trọng Anh Tuấn on 14/07/2019.
@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import NetworkPlatform
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
 
