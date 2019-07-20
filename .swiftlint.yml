@@ -5,9 +5,20 @@ opt_in_rules: # some rules are only opt-in
   - empty-string
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
+  - RxSwiftAPIGithubsExample/Models/Github/GHUser.swift
 line_length:
   warning: 120
 #  ignores_function_declarations: true
   ignores_comments: true
   ignores_interpolated_strings: true
   ignores_urls: true
+identifier_name:
+  min_length: # only min_length
+    error: 4 # only error
+  excluded: # excluded via string array
+    - id
+    - url
+#    - RxSwiftAPIGithubsExample/Models/Github/GHUser.swift
+#    - "RxSwiftAPIGithubsExample/Models/Github/GHUser.swift" # regex that defines paths to exclude during linting. optional
+#    - URL
+#    - GlobalAPIKey

@@ -17,8 +17,8 @@ extension SwiftyBeaver {
                           _ function: String = #function,
                           line: Int = #line,
                           context: Any? = nil) {
-        let msg: String = message() as? String ?? ""
-        debug("IN\(msg.isEmpty ? "" : " - \(msg)")", file, function, line: line, context: context)
+        let messageText: String = message() as? String ?? ""
+        debug("IN\(messageText.isEmpty ? "" : " - \(messageText)")", file, function, line: line, context: context)
     }
 
     /// log something which help during debugging (low priority)
@@ -28,7 +28,7 @@ extension SwiftyBeaver {
                          _ function: String = #function,
                          line: Int = #line,
                          context: Any? = nil) {
-        let msg: String = message() as? String ?? ""
-        debug("OUT\(msg.isEmpty ? "" : " - \(msg)")", file, function, line: line, context: context)
+        let messageText: String = message() as? String ?? ""
+        debug("OUT\(messageText.isEmpty ? "" : " - \(messageText)")", file, function, line: line, context: context)
     }
 }
