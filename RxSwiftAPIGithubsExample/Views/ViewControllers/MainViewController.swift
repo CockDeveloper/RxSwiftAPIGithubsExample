@@ -13,20 +13,38 @@ import NetworkPlatform
 
 class MainViewController: UIViewController {
 
-
+    @IBOutlet weak var apiGithubButton: UIButton!
     let disposeBag = DisposeBag()
-
+    let viewModel = MainViewModel()
     override func viewDidLoad() {
         logger.enter()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-        Network<[GHUser]>()
-            .requestGetJSON(urlString: "https://api.github.com/users")
-            .map { String(describing: $0) }
-            .observeOn(MainScheduler.instance)
-            .bind(to: textView.rx.text)
+        apiGithubButton.rx.tap
+            .observeOn(ConcurrentMainScheduler.instance)
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel.tapAPIGitHubButton()
+            })
             .disposed(by: disposeBag)
+
+        viewModel.action
+            .subscribe(onNext: { [unowned self] action in
+                switch action {
+                case .gotoGithub:
+                    self.performSegue(withIdentifier: "gotoGithub", sender: self)
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+
+        logger.exit()
+    }
+
+    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+        logger.enter()
+//        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
         logger.exit()
     }
 

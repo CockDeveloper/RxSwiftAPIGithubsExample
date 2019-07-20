@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GwF-x8-ZtU">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,20 +10,61 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Users All View Controller-->
+        <!--Github-->
         <scene sceneID="PKk-Yq-EvZ">
             <objects>
                 <viewController id="xWh-aO-2yT" customClass="GHUsersAllViewController" customModule="RxSwiftAPIGithubsExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mVa-MV-zWN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai1-IB-RKa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ai1-IB-RKa" firstAttribute="top" secondItem="hfy-hv-sdw" secondAttribute="top" id="1wa-An-G1F"/>
+                            <constraint firstItem="hfy-hv-sdw" firstAttribute="trailing" secondItem="ai1-IB-RKa" secondAttribute="trailing" id="7Ak-dx-Pc9"/>
+                            <constraint firstAttribute="bottom" secondItem="ai1-IB-RKa" secondAttribute="bottom" id="QAk-Dw-Q3F"/>
+                            <constraint firstItem="ai1-IB-RKa" firstAttribute="leading" secondItem="hfy-hv-sdw" secondAttribute="leading" id="lDx-ia-pcn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hfy-hv-sdw"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Github" id="Pv4-yt-3XH">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="EFe-eF-9wb"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBarItem" destination="EFe-eF-9wb" id="ozo-zi-pDu"/>
+                        <outlet property="textView" destination="ai1-IB-RKa" id="5b2-m7-qxs"/>
+                        <segue destination="4gv-8n-gvF" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMain:" id="UCY-J8-Ykz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPE-3f-Wzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4gv-8n-gvF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="101" y="56"/>
+            <point key="canvasLocation" x="1010.144927536232" y="55.580357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LKI-wV-6UL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GwF-x8-ZtU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B69-tL-Rpp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xWh-aO-2yT" kind="relationship" relationship="rootViewController" id="45Z-sI-YIj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSB-OH-qmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="55.580357142857139"/>
         </scene>
     </scenes>
 </document>

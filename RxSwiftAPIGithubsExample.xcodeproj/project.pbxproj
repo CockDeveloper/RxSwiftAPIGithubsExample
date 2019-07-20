@@ -21,6 +21,8 @@
 		2B2FD18922DAF32700596FF6 /* RxSwiftAPIGithubsExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FD18822DAF32700596FF6 /* RxSwiftAPIGithubsExampleTests.swift */; };
 		2B8BC02922E31F1400F194BC /* GHUsersAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BC02822E31F1400F194BC /* GHUsersAllViewController.swift */; };
 		2B8BC03A22E31FC200F194BC /* Github.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BC03822E31FC200F194BC /* Github.storyboard */; };
+		2B8BC03D22E325CE00F194BC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BC03C22E325CE00F194BC /* MainViewModel.swift */; };
+		2B8BC03F22E32CF600F194BC /* GHUsersAllViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BC03E22E32CF600F194BC /* GHUsersAllViewModel.swift */; };
 		2BE157E022DD4FFE00DB2FEE /* NetworkPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE157D722DD4FFE00DB2FEE /* NetworkPlatform.framework */; };
 		2BE157E722DD4FFE00DB2FEE /* NetworkPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE157E622DD4FFE00DB2FEE /* NetworkPlatformTests.swift */; };
 		2BE157E922DD4FFE00DB2FEE /* NetworkPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BE157D922DD4FFE00DB2FEE /* NetworkPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -97,6 +99,8 @@
 		2B2FD18A22DAF32700596FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B8BC02822E31F1400F194BC /* GHUsersAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUsersAllViewController.swift; sourceTree = "<group>"; };
 		2B8BC03922E31FC200F194BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Github.storyboard; sourceTree = "<group>"; };
+		2B8BC03C22E325CE00F194BC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		2B8BC03E22E32CF600F194BC /* GHUsersAllViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUsersAllViewModel.swift; sourceTree = "<group>"; };
 		2BE157D722DD4FFE00DB2FEE /* NetworkPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE157D922DD4FFE00DB2FEE /* NetworkPlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkPlatform.h; sourceTree = "<group>"; };
 		2BE157DA22DD4FFE00DB2FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 		2B2FD17222DAF32500596FF6 /* RxSwiftAPIGithubsExample */ = {
 			isa = PBXGroup;
 			children = (
+				2B8BC03B22E3259900F194BC /* ViewModels */,
 				2B8BC02622E31E3200F194BC /* Resources */,
 				2B8BC02522E31E0400F194BC /* Support Files */,
 				2B8BC02222E31D2C00F194BC /* Views */,
@@ -283,6 +288,15 @@
 				2B8BC02822E31F1400F194BC /* GHUsersAllViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2B8BC03B22E3259900F194BC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2B8BC03C22E325CE00F194BC /* MainViewModel.swift */,
+				2B8BC03E22E32CF600F194BC /* GHUsersAllViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		2BE157D822DD4FFE00DB2FEE /* NetworkPlatform */ = {
@@ -639,7 +653,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B8BC03D22E325CE00F194BC /* MainViewModel.swift in Sources */,
 				2B8BC02922E31F1400F194BC /* GHUsersAllViewController.swift in Sources */,
+				2B8BC03F22E32CF600F194BC /* GHUsersAllViewModel.swift in Sources */,
 				2B2FD17622DAF32500596FF6 /* MainViewController.swift in Sources */,
 				2B23AB5622DB351700A1BA97 /* UIViewController+Extentsion.swift in Sources */,
 				2B23AB5722DB351700A1BA97 /* SwiftyBeaver+Extension.swift in Sources */,
@@ -851,8 +867,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TS57QM5ZC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
-				INFOPLIST_FILE = RxSwiftAPIGithubsExample/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Support Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/$(PROJECT_NAME)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -860,7 +876,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -enable-bridging-pch";
 				PRODUCT_BUNDLE_IDENTIFIER = vn.cock.RxSwiftAPIGithubsExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RxSwiftAPIGithubsExample/RxSwiftAPIGithubsExample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Support Files/RxSwiftAPIGithubsExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -877,8 +893,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TS57QM5ZC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
-				INFOPLIST_FILE = RxSwiftAPIGithubsExample/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Support Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/$(PROJECT_NAME)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -886,7 +902,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -enable-bridging-pch";
 				PRODUCT_BUNDLE_IDENTIFIER = vn.cock.RxSwiftAPIGithubsExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RxSwiftAPIGithubsExample/RxSwiftAPIGithubsExample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Support Files/RxSwiftAPIGithubsExample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

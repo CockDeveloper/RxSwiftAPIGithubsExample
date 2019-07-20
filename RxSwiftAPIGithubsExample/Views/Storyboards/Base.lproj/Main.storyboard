@@ -32,6 +32,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="Psm-XG-BNn"/>
                     <connections>
+                        <outlet property="apiGithubButton" destination="BQb-gm-6ET" id="Bf0-EI-JOo"/>
                         <segue destination="eJ0-P4-bHL" kind="presentation" identifier="gotoGithub" id="xDy-3J-Jdb"/>
                     </connections>
                 </viewController>
