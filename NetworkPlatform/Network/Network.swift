@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//import Alamofire
+import Alamofire
 import RxAlamofire
 import RxSwift
 
@@ -30,7 +30,6 @@ final public class Network<T: Decodable> {
     }
 
     public func requestGetJSON(urlString: String) -> Observable<T> {
-
         return requestGet(urlString: urlString)
             .debug()
             .map({ data -> T in
@@ -89,4 +88,33 @@ final public class Network<T: Decodable> {
 //                return try JSONDecoder().decode(T.self, from: data)
 //            })
 //    }
+
+    public func requestDownload(urlString: String) -> Observable<String> {
+        let destination: DownloadRequest.DownloadFileDestination = { _, response
+            in
+            var cachesURL = FileManager.default.urls(for: .cachesDirectory,
+                                                   in: .userDomainMask)[0]
+            let filename = response.suggestedFilename ?? "\(urlString.hash).tmp"
+            cachesURL.appendPathComponent(filename)
+            print("cachesURL=\(cachesURL)")
+
+            return (cachesURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+
+        return RxAlamofire
+            .download(URLRequest(url: URL(string: urlString)!), to: destination)
+            .debug()
+            .observeOn(scheduler)
+            .map({ request in
+                Observable<String>.create { observer in
+                    request.response(completionHandler: { response in
+                        observer.onNext(response.destinationURL?.absoluteString ?? "")
+                    })
+                    return Disposables.create()
+                }
+            })
+            .debug()
+            .flatMap({ $0 })
+    }
+
 }

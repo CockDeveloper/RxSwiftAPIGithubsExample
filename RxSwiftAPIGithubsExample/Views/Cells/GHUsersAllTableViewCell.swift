@@ -34,13 +34,29 @@ class GHUsersAllTableViewCell: UITableViewCell {
         textLabel?.rx.text.onNext(user.login)
         detailTextLabel?.rx.text.onNext(user.nodeId)
 
-        Network<Data>()
-            .requestGet(urlString: user.avatarUrl)
+//        Network<Data>()
+//            .requestGet(urlString: user.avatarUrl)
+//            .debug()
+//            .map({ (data) -> UIImage? in
+//                return UIImage(data: data)
+//            })
+//            .observeOn(MainScheduler.instance)
+//            .bind(to: (imageView?.rx.image)!)
+//            .disposed(by: disposeBag)
+
+        Network<String>()
+            .requestDownload(urlString: user.avatarUrl)
             .debug()
-            .map({ (data) -> UIImage? in
-                return UIImage(data: data)
-            })
+            .map({ (filePath) -> UIImage? in
+                let data = try Data(contentsOf: URL(string: filePath)!)
+                // Not found image. 
+//                let retImage = UIImage(contentsOfFile: filePath)
+//                return retImage
+                let retImageData = UIImage(data: data)
+                return retImageData
+                })
             .observeOn(MainScheduler.instance)
+            .debug()
             .bind(to: (imageView?.rx.image)!)
             .disposed(by: disposeBag)
 
