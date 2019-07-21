@@ -22,11 +22,17 @@ final public class Network<T: Decodable> {
         self.scheduler = scheduler
     }
 
-    public func requestGetJSON(urlString: String) -> Observable<T> {
+    public func requestGet(urlString: String) -> Observable<Data> {
         return RxAlamofire
             .data(.get, urlString)
-            .debug()
             .observeOn(scheduler)
+            .debug()
+    }
+
+    public func requestGetJSON(urlString: String) -> Observable<T> {
+
+        return requestGet(urlString: urlString)
+            .debug()
             .map({ data -> T in
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase

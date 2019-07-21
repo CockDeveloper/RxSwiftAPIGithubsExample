@@ -1,5 +1,5 @@
 //
-//  UIViewController+Extentsion.swift
+//  UIViewController+Extension.swift
 //  RxSwiftRealmExample
 //
 //  Created by Nguyễn Trọng Anh Tuấn on 26/06/2019.
@@ -23,17 +23,7 @@ extension UIViewController {
 
 }
 
-protocol TypeNameable {
-    static var typeName: String {get}
-}
-
-extension TypeNameable {
-    static var typeName: String {
-        return String(describing: self)
-    }
-}
-
-protocol UIViewControllerNameable: TypeNameable {
+protocol UIViewControllerNameable: TypeNamable {
 }
 
 extension UIViewController: UIViewControllerNameable {

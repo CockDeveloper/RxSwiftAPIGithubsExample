@@ -11,7 +11,7 @@
 		19A2444064041AEA45547EDA /* Pods_RxSwiftAPIGithubsExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA6ABA2AF25BE8C9A26A070 /* Pods_RxSwiftAPIGithubsExampleTests.framework */; };
 		2B08C22322E2AE1600843D28 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08C22122E2AE1500843D28 /* Network.swift */; };
 		2B08C22D22E2CA2B00843D28 /* GHUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08C22C22E2CA2B00843D28 /* GHUser.swift */; };
-		2B23AB5622DB351700A1BA97 /* UIViewController+Extentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23AB5422DB351700A1BA97 /* UIViewController+Extentsion.swift */; };
+		2B23AB5622DB351700A1BA97 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23AB5422DB351700A1BA97 /* UIViewController+Extension.swift */; };
 		2B23AB5722DB351700A1BA97 /* SwiftyBeaver+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23AB5522DB351700A1BA97 /* SwiftyBeaver+Extension.swift */; };
 		2B2FD17422DAF32500596FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FD17322DAF32500596FF6 /* AppDelegate.swift */; };
 		2B2FD17622DAF32500596FF6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FD17522DAF32500596FF6 /* MainViewController.swift */; };
@@ -19,6 +19,12 @@
 		2B2FD17B22DAF32700596FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FD17A22DAF32700596FF6 /* Assets.xcassets */; };
 		2B2FD17E22DAF32700596FF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FD17C22DAF32700596FF6 /* LaunchScreen.storyboard */; };
 		2B2FD18922DAF32700596FF6 /* RxSwiftAPIGithubsExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FD18822DAF32700596FF6 /* RxSwiftAPIGithubsExampleTests.swift */; };
+		2B39950A22E41EBD00DA136D /* GHUsersAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39950922E41EBD00DA136D /* GHUsersAllTableViewCell.swift */; };
+		2B39950D22E41F7200DA136D /* ViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39950C22E41F7200DA136D /* ViewReusable.swift */; };
+		2B39950F22E41FD200DA136D /* TypeNamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39950E22E41FD200DA136D /* TypeNamable.swift */; };
+		2B39951122E420A000DA136D /* ViewReusable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39951022E420A000DA136D /* ViewReusable+Extension.swift */; };
+		2B39951322E4212C00DA136D /* TypeNamable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39951222E4212C00DA136D /* TypeNamable+Extension.swift */; };
+		2B39951522E4229500DA136D /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39951422E4229500DA136D /* UITableViewCell+Extension.swift */; };
 		2B8BC02922E31F1400F194BC /* GHUsersAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BC02822E31F1400F194BC /* GHUsersAllViewController.swift */; };
 		2B8BC03A22E31FC200F194BC /* Github.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BC03822E31FC200F194BC /* Github.storyboard */; };
 		2B8BC03D22E325CE00F194BC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BC03C22E325CE00F194BC /* MainViewModel.swift */; };
@@ -85,7 +91,7 @@
 		2B08C22522E2B6C300843D28 /* RxSwiftAPIGithubsExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxSwiftAPIGithubsExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		2B08C22922E2B7AB00843D28 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2B08C22C22E2CA2B00843D28 /* GHUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUser.swift; sourceTree = "<group>"; };
-		2B23AB5422DB351700A1BA97 /* UIViewController+Extentsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extentsion.swift"; sourceTree = "<group>"; };
+		2B23AB5422DB351700A1BA97 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2B23AB5522DB351700A1BA97 /* SwiftyBeaver+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftyBeaver+Extension.swift"; sourceTree = "<group>"; };
 		2B2FD17022DAF32500596FF6 /* RxSwiftAPIGithubsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftAPIGithubsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B2FD17322DAF32500596FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,12 @@
 		2B2FD18422DAF32700596FF6 /* RxSwiftAPIGithubsExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSwiftAPIGithubsExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B2FD18822DAF32700596FF6 /* RxSwiftAPIGithubsExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftAPIGithubsExampleTests.swift; sourceTree = "<group>"; };
 		2B2FD18A22DAF32700596FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B39950922E41EBD00DA136D /* GHUsersAllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUsersAllTableViewCell.swift; sourceTree = "<group>"; };
+		2B39950C22E41F7200DA136D /* ViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReusable.swift; sourceTree = "<group>"; };
+		2B39950E22E41FD200DA136D /* TypeNamable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeNamable.swift; sourceTree = "<group>"; };
+		2B39951022E420A000DA136D /* ViewReusable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewReusable+Extension.swift"; sourceTree = "<group>"; };
+		2B39951222E4212C00DA136D /* TypeNamable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TypeNamable+Extension.swift"; sourceTree = "<group>"; };
+		2B39951422E4229500DA136D /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		2B8BC02822E31F1400F194BC /* GHUsersAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUsersAllViewController.swift; sourceTree = "<group>"; };
 		2B8BC03922E31FC200F194BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Github.storyboard; sourceTree = "<group>"; };
 		2B8BC03C22E325CE00F194BC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -183,8 +195,11 @@
 		2B23AB5322DB351700A1BA97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2B23AB5422DB351700A1BA97 /* UIViewController+Extentsion.swift */,
+				2B23AB5422DB351700A1BA97 /* UIViewController+Extension.swift */,
 				2B23AB5522DB351700A1BA97 /* SwiftyBeaver+Extension.swift */,
+				2B39951022E420A000DA136D /* ViewReusable+Extension.swift */,
+				2B39951222E4212C00DA136D /* TypeNamable+Extension.swift */,
+				2B39951422E4229500DA136D /* UITableViewCell+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -216,6 +231,7 @@
 		2B2FD17222DAF32500596FF6 /* RxSwiftAPIGithubsExample */ = {
 			isa = PBXGroup;
 			children = (
+				2B39950B22E41EF600DA136D /* Protocols */,
 				2B8BC03B22E3259900F194BC /* ViewModels */,
 				2B8BC02622E31E3200F194BC /* Resources */,
 				2B8BC02522E31E0400F194BC /* Support Files */,
@@ -235,9 +251,27 @@
 			path = RxSwiftAPIGithubsExampleTests;
 			sourceTree = "<group>";
 		};
+		2B39950722E41E6600DA136D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2B39950922E41EBD00DA136D /* GHUsersAllTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2B39950B22E41EF600DA136D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2B39950C22E41F7200DA136D /* ViewReusable.swift */,
+				2B39950E22E41FD200DA136D /* TypeNamable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		2B8BC02222E31D2C00F194BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2B39950722E41E6600DA136D /* Cells */,
 				2B8BC02722E31E8400F194BC /* ViewControllers */,
 				2B8BC02422E31DCB00F194BC /* Xibs */,
 				2B8BC02322E31D7700F194BC /* Storyboards */,
@@ -656,11 +690,17 @@
 				2B8BC03D22E325CE00F194BC /* MainViewModel.swift in Sources */,
 				2B8BC02922E31F1400F194BC /* GHUsersAllViewController.swift in Sources */,
 				2B8BC03F22E32CF600F194BC /* GHUsersAllViewModel.swift in Sources */,
+				2B39950F22E41FD200DA136D /* TypeNamable.swift in Sources */,
 				2B2FD17622DAF32500596FF6 /* MainViewController.swift in Sources */,
-				2B23AB5622DB351700A1BA97 /* UIViewController+Extentsion.swift in Sources */,
+				2B39951122E420A000DA136D /* ViewReusable+Extension.swift in Sources */,
+				2B39950A22E41EBD00DA136D /* GHUsersAllTableViewCell.swift in Sources */,
+				2B39951522E4229500DA136D /* UITableViewCell+Extension.swift in Sources */,
+				2B39950D22E41F7200DA136D /* ViewReusable.swift in Sources */,
+				2B23AB5622DB351700A1BA97 /* UIViewController+Extension.swift in Sources */,
 				2B23AB5722DB351700A1BA97 /* SwiftyBeaver+Extension.swift in Sources */,
 				2B08C22D22E2CA2B00843D28 /* GHUser.swift in Sources */,
 				2B2FD17422DAF32500596FF6 /* AppDelegate.swift in Sources */,
+				2B39951322E4212C00DA136D /* TypeNamable+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
