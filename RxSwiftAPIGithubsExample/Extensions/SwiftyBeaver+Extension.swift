@@ -9,6 +9,8 @@
 import Foundation
 import SwiftyBeaver
 
+let logger = SwiftyBeaver.self
+
 extension SwiftyBeaver {
     /// log something which help during debugging (low priority)
     /// use log when start function

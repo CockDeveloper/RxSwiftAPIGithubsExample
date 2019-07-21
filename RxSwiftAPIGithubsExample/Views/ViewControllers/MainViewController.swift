@@ -21,13 +21,14 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         apiGithubButton.rx.tap
-            .observeOn(ConcurrentMainScheduler.instance)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel.tapAPIGitHubButton()
             })
             .disposed(by: disposeBag)
 
         viewModel.action
+            .observeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { [unowned self] action in
                 switch action {
                 case .gotoGithub:

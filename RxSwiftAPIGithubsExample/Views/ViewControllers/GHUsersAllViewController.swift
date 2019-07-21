@@ -24,7 +24,7 @@ class GHUsersAllViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        tableView.delegate = self
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
         tableView.contentInsetAdjustmentBehavior = .never
 //        automaticallyAdjustsScrollViewInsets = false
 
@@ -42,6 +42,7 @@ class GHUsersAllViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.action
+            .subscribeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { [unowned self] action in
                 switch action {
                 case .gotoMain:
@@ -54,7 +55,7 @@ class GHUsersAllViewController: UIViewController {
 
         backBarItem.rx.tap
             .asObservable()
-            .observeOn(ConcurrentMainScheduler.instance)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel.tapBackButton()
             })
@@ -85,7 +86,7 @@ extension GHUsersAllViewController: UITableViewDelegate {
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.green
         headerView.backgroundView = backgroundView
-        logger.exit("view=\(headerView)")
+        logger.exit()
         return headerView
     }
 

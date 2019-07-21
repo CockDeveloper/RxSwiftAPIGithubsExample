@@ -19,10 +19,14 @@ final public class Network<T: Decodable> {
         = ConcurrentDispatchQueueScheduler(
             qos: DispatchQoS(qosClass: DispatchQoS.QoSClass.background,
                              relativePriority: 1))) {
+        logger.enter("scheduler=\(scheduler)")
         self.scheduler = scheduler
+        logger.exit()
     }
 
     public func requestGet(urlString: String) -> Observable<Data> {
+        logger.enter("urlString=\(urlString)")
+        logger.exit()
         return RxAlamofire
             .data(.get, urlString)
             .observeOn(scheduler)
@@ -30,6 +34,8 @@ final public class Network<T: Decodable> {
     }
 
     public func requestGetJSON(urlString: String) -> Observable<T> {
+        logger.enter("urlString=\(urlString)")
+        logger.exit()
         return requestGet(urlString: urlString)
             .debug()
             .map({ data -> T in
@@ -52,6 +58,8 @@ final public class Network<T: Decodable> {
 //    }
 
     public func requestPostJSON(urlString: String, parameters: [String: Any] = [:]) -> Observable<T> {
+        logger.enter("urlString=\(urlString)")
+        logger.exit()
         return RxAlamofire
             .request(.post, urlString, parameters: parameters)
             .debug()
@@ -90,17 +98,18 @@ final public class Network<T: Decodable> {
 //    }
 
     public func requestDownload(urlString: String) -> Observable<String> {
+        logger.enter("urlString=\(urlString)")
         let destination: DownloadRequest.DownloadFileDestination = { _, response
             in
             var cachesURL = FileManager.default.urls(for: .cachesDirectory,
                                                    in: .userDomainMask)[0]
             let filename = response.suggestedFilename ?? "\(urlString.hash).tmp"
             cachesURL.appendPathComponent(filename)
-            print("cachesURL=\(cachesURL)")
 
             return (cachesURL, [.removePreviousFile, .createIntermediateDirectories])
         }
 
+        logger.exit()
         return RxAlamofire
             .download(URLRequest(url: URL(string: urlString)!), to: destination)
             .debug()

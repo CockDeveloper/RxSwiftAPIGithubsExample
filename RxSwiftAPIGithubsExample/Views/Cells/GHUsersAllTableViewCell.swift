@@ -46,7 +46,6 @@ class GHUsersAllTableViewCell: UITableViewCell {
 
         Network<String>()
             .requestDownload(urlString: user.avatarUrl)
-            .debug()
             .map({ (filePath) -> UIImage? in
                 let data = try Data(contentsOf: URL(string: filePath)!)
                 // Not found image. 
@@ -55,8 +54,7 @@ class GHUsersAllTableViewCell: UITableViewCell {
                 let retImageData = UIImage(data: data)
                 return retImageData
                 })
-            .observeOn(MainScheduler.instance)
-            .debug()
+            .observeOn(ConcurrentMainScheduler.instance)
             .bind(to: (imageView?.rx.image)!)
             .disposed(by: disposeBag)
 

@@ -29,6 +29,7 @@
 		2B8BC03A22E31FC200F194BC /* Github.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BC03822E31FC200F194BC /* Github.storyboard */; };
 		2B8BC03D22E325CE00F194BC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BC03C22E325CE00F194BC /* MainViewModel.swift */; };
 		2B8BC03F22E32CF600F194BC /* GHUsersAllViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BC03E22E32CF600F194BC /* GHUsersAllViewModel.swift */; };
+		2BBAEB8422E4C7B100975CB5 /* SwiftyBeaver+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23AB5522DB351700A1BA97 /* SwiftyBeaver+Extension.swift */; };
 		2BE157E022DD4FFE00DB2FEE /* NetworkPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE157D722DD4FFE00DB2FEE /* NetworkPlatform.framework */; };
 		2BE157E722DD4FFE00DB2FEE /* NetworkPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE157E622DD4FFE00DB2FEE /* NetworkPlatformTests.swift */; };
 		2BE157E922DD4FFE00DB2FEE /* NetworkPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BE157D922DD4FFE00DB2FEE /* NetworkPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -716,6 +717,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BBAEB8422E4C7B100975CB5 /* SwiftyBeaver+Extension.swift in Sources */,
 				2B08C22322E2AE1600843D28 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
