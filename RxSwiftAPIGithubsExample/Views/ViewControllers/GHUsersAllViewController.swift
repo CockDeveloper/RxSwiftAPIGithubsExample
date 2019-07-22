@@ -28,7 +28,11 @@ class GHUsersAllViewController: UIViewController {
         tableView.contentInsetAdjustmentBehavior = .never
 //        automaticallyAdjustsScrollViewInsets = false
 
-        let cellType = GHUsersAllTableViewCell.self
+//        let cellType = GHUsersAllTableViewCell.self
+        let cellType = GHUsersAllSubTableViewCell.self
+        let xibSub = UINib(nibName: cellType.name, bundle: Bundle.main)
+        tableView.register(xibSub, forCellReuseIdentifier: cellType.reuseIdentifier)
+
 //        viewModel.items
 //            .bind(to: tableView.rx.items(cellIdentifier: cellType.reuseIdentifier, cellType: cellType)) { $2.configData(user: $0) }
 //            .disposed(by: disposeBag)
@@ -42,11 +46,13 @@ class GHUsersAllViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.action
-            .subscribeOn(ConcurrentMainScheduler.instance)
+            .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] action in
                 switch action {
                 case .gotoMain:
-                    self.performSegue(withIdentifier: "unwindToMain", sender: self)
+                    DispatchQueue.main.async(execute: {
+                        self.performSegue(withIdentifier: "unwindToMain", sender: self)
+                    })
                 default:
                     break
                 }

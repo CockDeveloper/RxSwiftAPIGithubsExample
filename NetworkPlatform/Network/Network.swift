@@ -126,7 +126,6 @@ final public class Network<T: Decodable> {
                     return Disposables.create()
                 }
             })
-            .debug()
             .flatMap({ $0 })
     }
 
