@@ -21,6 +21,7 @@ class GHUsersAllViewModel {
     let items = BehaviorRelay<[GHUser]>(value: [GHUser]())
     let observableNext = BehaviorRelay<Int>(value: 0)//= Observable<Int>.of(1)
     private let disposeBag = DisposeBag()
+    private let numberOfItemsEach: Int = 3
 
     func getAllUsers(urlString: String = "https://api.github.com/users") {
         logger.enter()
@@ -29,7 +30,19 @@ class GHUsersAllViewModel {
             if self.observableNext.value < 3 {
                 Network<[GHUser]>()
                     .requestGetJSON(urlString: urlString)
-                    .subscribe(onNext: observer.onNext,
+                    .subscribe(onNext: { [unowned self] listUsers in
+                        if listUsers.count < self.numberOfItemsEach {
+                            observer.onNext(listUsers)
+                        } else {
+                            var randUsers = [GHUser]()
+                            repeat {
+                                let index = Int(arc4random())%listUsers.count
+                                randUsers.append(listUsers[index])
+                            } while (randUsers.count < self.numberOfItemsEach)
+
+                            observer.onNext(randUsers)
+                        }
+                    },
                                onError: { logger.error($0) },
                                onCompleted: { //[unowned self] in
                                 //                                self.observableNext

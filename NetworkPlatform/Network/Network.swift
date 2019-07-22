@@ -97,6 +97,10 @@ final public class Network<T: Decodable> {
 //            })
 //    }
 
+    /// Download file or data into temporary file (Background still download)
+    ///
+    /// - Parameter urlString: String url download file or data
+    /// - Returns: String Path saved of temporary file
     public func requestDownload(urlString: String) -> Observable<String> {
         logger.enter("urlString=\(urlString)")
         let destination: DownloadRequest.DownloadFileDestination = { _, response
