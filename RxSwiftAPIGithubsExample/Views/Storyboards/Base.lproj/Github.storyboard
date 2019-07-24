@@ -93,12 +93,66 @@
                         <outlet property="backBarItem" destination="zxc-ve-uUX" id="WOt-be-imH"/>
                         <outlet property="tableView" destination="1Yn-6b-WXr" id="aYW-cG-3Td"/>
                         <segue destination="YI3-yI-CoH" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMain:" id="2Ox-0Z-6YJ"/>
+                        <segue destination="MAt-tQ-wDR" kind="show" identifier="gotoPlayback" id="LfX-4D-SAu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdY-qM-2r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YI3-yI-CoH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1920.289855072464" y="736.60714285714278"/>
+        </scene>
+        <!--Playback-->
+        <scene sceneID="WUy-YR-QxR">
+            <objects>
+                <viewController storyboardIdentifier="PlaybackViewController" id="MAt-tQ-wDR" customClass="PlaybackViewController" customModule="RxSwiftAPIGithubsExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2dl-v5-1l2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBY-fv-mHx">
+                                <rect key="frame" x="0.0" y="331.5" width="414" height="233"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cBY-fv-mHx" secondAttribute="height" multiplier="16:9" id="huy-Yz-OuA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9q-cX-wKo" userLabel="Control Buttons">
+                                <rect key="frame" x="0.0" y="588.5" width="414" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCV-H4-2qv">
+                                        <rect key="frame" x="187" y="46" width="40" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Play"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ZCV-H4-2qv" firstAttribute="centerX" secondItem="w9q-cX-wKo" secondAttribute="centerX" id="F9y-08-ZTG"/>
+                                    <constraint firstAttribute="height" constant="128" id="e75-Qb-RAq"/>
+                                    <constraint firstItem="ZCV-H4-2qv" firstAttribute="centerY" secondItem="w9q-cX-wKo" secondAttribute="centerY" id="k28-FC-UXy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w9q-cX-wKo" firstAttribute="top" secondItem="cBY-fv-mHx" secondAttribute="bottom" constant="24" id="DFg-vl-1FT"/>
+                            <constraint firstItem="4dd-TM-itG" firstAttribute="trailing" secondItem="w9q-cX-wKo" secondAttribute="trailing" id="IIh-hd-8kL"/>
+                            <constraint firstItem="cBY-fv-mHx" firstAttribute="leading" secondItem="4dd-TM-itG" secondAttribute="leading" id="KB1-zy-LGW"/>
+                            <constraint firstItem="cBY-fv-mHx" firstAttribute="centerY" secondItem="2dl-v5-1l2" secondAttribute="centerY" id="hrG-hD-Nqh"/>
+                            <constraint firstItem="w9q-cX-wKo" firstAttribute="leading" secondItem="4dd-TM-itG" secondAttribute="leading" id="iPW-cU-2rg"/>
+                            <constraint firstItem="4dd-TM-itG" firstAttribute="trailing" secondItem="cBY-fv-mHx" secondAttribute="trailing" id="wpu-B3-il2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4dd-TM-itG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Playback" id="8wE-HT-gpG"/>
+                    <connections>
+                        <outlet property="playBackView" destination="cBY-fv-mHx" id="jG9-hu-wcf"/>
+                        <outlet property="playOrPauseButton" destination="ZCV-H4-2qv" id="Hjc-IW-jiP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9w-x3-6TE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2975" y="732"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mla-JU-uHE">

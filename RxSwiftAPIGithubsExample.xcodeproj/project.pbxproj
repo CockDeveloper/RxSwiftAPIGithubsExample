@@ -32,7 +32,11 @@
 		2BA21A0022E53D510088F37E /* GHUsersAllSubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA219FF22E53D510088F37E /* GHUsersAllSubTableViewCell.swift */; };
 		2BA21A0622E53D810088F37E /* GHUsersAllSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BA21A0422E53D810088F37E /* GHUsersAllSubTableViewCell.xib */; };
 		2BA21A0822E540740088F37E /* GHUsersAllSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA21A0722E540740088F37E /* GHUsersAllSubViewController.swift */; };
+		2BA488E022E7D329001E3F01 /* big_buck_bunny_720p_30mb.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2BA488DF22E7D329001E3F01 /* big_buck_bunny_720p_30mb.mp4 */; };
 		2BBAEB8422E4C7B100975CB5 /* SwiftyBeaver+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23AB5522DB351700A1BA97 /* SwiftyBeaver+Extension.swift */; };
+		2BBBBA3422E75E4200431624 /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBBA3322E75E4200431624 /* PlaybackViewController.swift */; };
+		2BBBBA3622E75E6600431624 /* PlaybackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBBA3522E75E6600431624 /* PlaybackViewModel.swift */; };
+		2BBBBA3822E76C5700431624 /* AVPlayer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBBA3722E76C5700431624 /* AVPlayer+Rx.swift */; };
 		2BE157E022DD4FFE00DB2FEE /* NetworkPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE157D722DD4FFE00DB2FEE /* NetworkPlatform.framework */; };
 		2BE157E722DD4FFE00DB2FEE /* NetworkPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE157E622DD4FFE00DB2FEE /* NetworkPlatformTests.swift */; };
 		2BE157E922DD4FFE00DB2FEE /* NetworkPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BE157D922DD4FFE00DB2FEE /* NetworkPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,6 +124,10 @@
 		2BA219FF22E53D510088F37E /* GHUsersAllSubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUsersAllSubTableViewCell.swift; sourceTree = "<group>"; };
 		2BA21A0522E53D810088F37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GHUsersAllSubTableViewCell.xib; sourceTree = "<group>"; };
 		2BA21A0722E540740088F37E /* GHUsersAllSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUsersAllSubViewController.swift; sourceTree = "<group>"; };
+		2BA488DF22E7D329001E3F01 /* big_buck_bunny_720p_30mb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_buck_bunny_720p_30mb.mp4; sourceTree = "<group>"; };
+		2BBBBA3322E75E4200431624 /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
+		2BBBBA3522E75E6600431624 /* PlaybackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewModel.swift; sourceTree = "<group>"; };
+		2BBBBA3722E76C5700431624 /* AVPlayer+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Rx.swift"; sourceTree = "<group>"; };
 		2BE157D722DD4FFE00DB2FEE /* NetworkPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE157D922DD4FFE00DB2FEE /* NetworkPlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkPlatform.h; sourceTree = "<group>"; };
 		2BE157DA22DD4FFE00DB2FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,6 +215,7 @@
 				2B39951022E420A000DA136D /* ViewReusable+Extension.swift */,
 				2B39951222E4212C00DA136D /* TypeNamable+Extension.swift */,
 				2B39951422E4229500DA136D /* UITableViewCell+Extension.swift */,
+				2BBBBA3722E76C5700431624 /* AVPlayer+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,6 +329,7 @@
 			children = (
 				2B2FD17A22DAF32700596FF6 /* Assets.xcassets */,
 				2B2FD17F22DAF32700596FF6 /* Info.plist */,
+				2BA488DF22E7D329001E3F01 /* big_buck_bunny_720p_30mb.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -330,6 +340,7 @@
 				2B2FD17522DAF32500596FF6 /* MainViewController.swift */,
 				2B8BC02822E31F1400F194BC /* GHUsersAllViewController.swift */,
 				2BA21A0722E540740088F37E /* GHUsersAllSubViewController.swift */,
+				2BBBBA3322E75E4200431624 /* PlaybackViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -339,6 +350,7 @@
 			children = (
 				2B8BC03C22E325CE00F194BC /* MainViewModel.swift */,
 				2B8BC03E22E32CF600F194BC /* GHUsersAllViewModel.swift */,
+				2BBBBA3522E75E6600431624 /* PlaybackViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -541,6 +553,7 @@
 				2B2FD17922DAF32500596FF6 /* Main.storyboard in Resources */,
 				2BA21A0622E53D810088F37E /* GHUsersAllSubTableViewCell.xib in Resources */,
 				2B8BC03A22E31FC200F194BC /* Github.storyboard in Resources */,
+				2BA488E022E7D329001E3F01 /* big_buck_bunny_720p_30mb.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,11 +713,13 @@
 			files = (
 				2B8BC03D22E325CE00F194BC /* MainViewModel.swift in Sources */,
 				2B8BC02922E31F1400F194BC /* GHUsersAllViewController.swift in Sources */,
+				2BBBBA3822E76C5700431624 /* AVPlayer+Rx.swift in Sources */,
 				2B8BC03F22E32CF600F194BC /* GHUsersAllViewModel.swift in Sources */,
 				2B39950F22E41FD200DA136D /* TypeNamable.swift in Sources */,
 				2B2FD17622DAF32500596FF6 /* MainViewController.swift in Sources */,
 				2B39951122E420A000DA136D /* ViewReusable+Extension.swift in Sources */,
 				2BA21A0022E53D510088F37E /* GHUsersAllSubTableViewCell.swift in Sources */,
+				2BBBBA3622E75E6600431624 /* PlaybackViewModel.swift in Sources */,
 				2B39950A22E41EBD00DA136D /* GHUsersAllTableViewCell.swift in Sources */,
 				2B39951522E4229500DA136D /* UITableViewCell+Extension.swift in Sources */,
 				2B39950D22E41F7200DA136D /* ViewReusable.swift in Sources */,
@@ -712,6 +727,7 @@
 				2B23AB5722DB351700A1BA97 /* SwiftyBeaver+Extension.swift in Sources */,
 				2B08C22D22E2CA2B00843D28 /* GHUser.swift in Sources */,
 				2BA21A0822E540740088F37E /* GHUsersAllSubViewController.swift in Sources */,
+				2BBBBA3422E75E4200431624 /* PlaybackViewController.swift in Sources */,
 				2B2FD17422DAF32500596FF6 /* AppDelegate.swift in Sources */,
 				2B39951322E4212C00DA136D /* TypeNamable+Extension.swift in Sources */,
 			);

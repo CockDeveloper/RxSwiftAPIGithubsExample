@@ -18,6 +18,9 @@ class GHUsersAllTableViewCell: UITableViewCell {
         logger.enter()
         super.awakeFromNib()
         // Initialization code
+
+        selectedBackgroundView = UIView()
+        selectedBackgroundView?.backgroundColor = UIColor.brown.withAlphaComponent(0.7)
         logger.exit()
     }
 

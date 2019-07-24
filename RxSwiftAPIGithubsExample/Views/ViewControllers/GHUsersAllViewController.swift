@@ -46,13 +46,13 @@ class GHUsersAllViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.action
-            .subscribeOn(MainScheduler.instance)
+            .subscribeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [unowned self] action in
                 switch action {
                 case .gotoMain:
-                    DispatchQueue.main.async(execute: {
-                        self.performSegue(withIdentifier: "unwindToMain", sender: self)
-                    })
+                    self.gotoSegue("unwindToMain")
+                case .gotoPlayback:
+                    self.gotoSegue("gotoPlayback")
                 default:
                     break
                 }
@@ -67,20 +67,22 @@ class GHUsersAllViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
+        tableView.rx.itemSelected
+            .subscribe(onNext: viewModel.tapCell)
+            .disposed(by: disposeBag)
+
         viewModel.getAllUsers()
 
         logger.exit()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func gotoSegue(_ identifier: String) {
+        logger.enter()
+        DispatchQueue.main.async(execute: { [weak self] in
+            self?.performSegue(withIdentifier: identifier, sender: self)
+        })
+        logger.exit()
     }
-    */
 
 }
 

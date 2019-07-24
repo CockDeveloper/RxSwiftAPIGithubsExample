@@ -15,6 +15,7 @@ class GHUsersAllViewModel {
     enum Action {
         case none
         case gotoMain
+        case gotoPlayback
     }
 
     let action = BehaviorRelay<Action>(value: .none)
@@ -74,6 +75,14 @@ class GHUsersAllViewModel {
         logger.enter()
 
         action.accept(.gotoMain)
+
+        logger.exit()
+    }
+
+    func tapCell(at index: IndexPath) {
+        logger.enter()
+
+        action.accept(.gotoPlayback)
 
         logger.exit()
     }
