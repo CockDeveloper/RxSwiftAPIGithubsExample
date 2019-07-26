@@ -41,7 +41,7 @@ class GHUsersAllViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .bind(to: tableView.rx.items(cellIdentifier: cellType.reuseIdentifier,
                                          cellType: cellType)) { _, user, cell in
-                cell.configData(user: user)
+                                            cell.configData(user: user)
             }
             .disposed(by: disposeBag)
 

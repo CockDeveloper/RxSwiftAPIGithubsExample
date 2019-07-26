@@ -18,28 +18,41 @@ class PlaybackViewController: UIViewController {
     let viewModel = PlaybackViewModel()
     let disposeBag = DisposeBag()
 
+    deinit {
+        logger.enter()
+        viewModel.disposeDowload?.dispose()
+        logger.exit()
+    }
+
     override func viewDidLoad() {
         logger.enter()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addPlayer()
+        viewModel.urlPlay
+            .skip(1)
+            .subscribeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [unowned self] _ in
+                self.addPlayer()
+            })
+            .disposed(by: disposeBag)
+//        addPlayer()
 
 //        Observable.combineLatest(viewModel.player.rx.timeControlStatus, Observable<Int>.interval(.milliseconds(350), scheduler: MainScheduler.instance))
 //        .map
 
-        Observable.combineLatest(viewModel.player.rx.timeControlStatus,
-                                 Observable<Int>.interval(.milliseconds(350), scheduler: MainScheduler.instance))
-            .map { $0.0 }
-            .subscribe(onNext: { [unowned self] status in
-                switch (status) {
-                case .playing:
-                    self.playOrPauseButton.rx.title(for: .normal).onNext("Pause")
-                default:
-                    self.playOrPauseButton.rx.title(for: .normal).onNext("Play")
-                }
-            })
-            .disposed(by: disposeBag)
+//        Observable.combineLatest(viewModel.player.rx.timeControlStatus,
+//                                 Observable<Int>.interval(.milliseconds(350), scheduler: MainScheduler.instance))
+//            .map { $0.0 }
+//            .subscribe(onNext: { [unowned self] status in
+//                switch (status) {
+//                case .playing:
+//                    self.playOrPauseButton.rx.title(for: .normal).onNext("Pause")
+//                default:
+//                    self.playOrPauseButton.rx.title(for: .normal).onNext("Play")
+//                }
+//            })
+//            .disposed(by: disposeBag)
 
         playOrPauseButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
@@ -93,6 +106,8 @@ class PlaybackViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
+        viewModel.downloadVideo()
+
         logger.exit()
     }
 
@@ -100,7 +115,7 @@ class PlaybackViewController: UIViewController {
         logger.enter()
         super.viewDidAppear(animated)
 
-        play()
+//        play()
         logger.exit()
     }
 
@@ -112,6 +127,21 @@ class PlaybackViewController: UIViewController {
         playerLayer.frame = playBackView.bounds
         playerLayer.videoGravity = .resizeAspectFill
         playBackView.layer.addSublayer(playerLayer)
+
+        Observable.combineLatest(viewModel.player.rx.timeControlStatus,
+                                 Observable<Int>.interval(.milliseconds(350), scheduler: MainScheduler.instance))
+            .map { $0.0 }
+            .subscribe(onNext: { [unowned self] status in
+                switch (status) {
+                case .playing:
+                    self.playOrPauseButton.rx.title(for: .normal).onNext("Pause")
+                default:
+                    self.playOrPauseButton.rx.title(for: .normal).onNext("Play")
+                }
+            })
+            .disposed(by: disposeBag)
+
+        play()
 
         logger.exit()
     }
