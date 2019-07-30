@@ -101,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="1920.289855072464" y="736.60714285714278"/>
         </scene>
-        <!--Playback-->
+        <!--Playback View Controller-->
         <scene sceneID="WUy-YR-QxR">
             <objects>
                 <viewController storyboardIdentifier="PlaybackViewController" id="MAt-tQ-wDR" customClass="PlaybackViewController" customModule="RxSwiftAPIGithubsExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,22 +132,63 @@
                                     <constraint firstItem="ZCV-H4-2qv" firstAttribute="centerY" secondItem="w9q-cX-wKo" secondAttribute="centerY" id="k28-FC-UXy"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i02-2c-ZC3" userLabel="Right Title View">
+                                <rect key="frame" x="330" y="104" width="68" height="18"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nC4-nJ-Zzf">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="2Pv-R3-oQE"/>
+                                            <constraint firstAttribute="width" constant="18" id="Puf-L1-gdG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAJ-Wh-GPr">
+                                        <rect key="frame" x="26" y="-1.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pAJ-Wh-GPr" firstAttribute="centerY" secondItem="i02-2c-ZC3" secondAttribute="centerY" id="IvV-E9-iWY"/>
+                                    <constraint firstAttribute="trailing" secondItem="pAJ-Wh-GPr" secondAttribute="trailing" id="PIm-Fb-aIN"/>
+                                    <constraint firstAttribute="bottom" secondItem="nC4-nJ-Zzf" secondAttribute="bottom" id="fjN-hr-qvM"/>
+                                    <constraint firstItem="nC4-nJ-Zzf" firstAttribute="leading" secondItem="i02-2c-ZC3" secondAttribute="leading" id="iVD-MP-g6E"/>
+                                    <constraint firstItem="pAJ-Wh-GPr" firstAttribute="leading" secondItem="nC4-nJ-Zzf" secondAttribute="trailing" constant="8" id="o1d-HU-aVq"/>
+                                    <constraint firstItem="nC4-nJ-Zzf" firstAttribute="top" secondItem="i02-2c-ZC3" secondAttribute="top" id="v2W-XB-TFS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="w9q-cX-wKo" firstAttribute="top" secondItem="cBY-fv-mHx" secondAttribute="bottom" constant="24" id="DFg-vl-1FT"/>
                             <constraint firstItem="4dd-TM-itG" firstAttribute="trailing" secondItem="w9q-cX-wKo" secondAttribute="trailing" id="IIh-hd-8kL"/>
+                            <constraint firstItem="i02-2c-ZC3" firstAttribute="leading" secondItem="4dd-TM-itG" secondAttribute="leading" constant="16" id="Jkt-Pi-qWV"/>
                             <constraint firstItem="cBY-fv-mHx" firstAttribute="leading" secondItem="4dd-TM-itG" secondAttribute="leading" id="KB1-zy-LGW"/>
                             <constraint firstItem="cBY-fv-mHx" firstAttribute="centerY" secondItem="2dl-v5-1l2" secondAttribute="centerY" id="hrG-hD-Nqh"/>
                             <constraint firstItem="w9q-cX-wKo" firstAttribute="leading" secondItem="4dd-TM-itG" secondAttribute="leading" id="iPW-cU-2rg"/>
+                            <constraint firstItem="4dd-TM-itG" firstAttribute="trailing" secondItem="i02-2c-ZC3" secondAttribute="trailing" constant="16" id="kJQ-XR-Uby"/>
+                            <constraint firstItem="i02-2c-ZC3" firstAttribute="top" secondItem="4dd-TM-itG" secondAttribute="top" constant="16" id="mZu-vB-Pbb"/>
                             <constraint firstItem="4dd-TM-itG" firstAttribute="trailing" secondItem="cBY-fv-mHx" secondAttribute="trailing" id="wpu-B3-il2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4dd-TM-itG"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="i02-2c-ZC3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="kJQ-XR-Uby"/>
+                                <exclude reference="Jkt-Pi-qWV"/>
+                                <exclude reference="mZu-vB-Pbb"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Playback" id="8wE-HT-gpG"/>
+                    <navigationItem key="navigationItem" id="8wE-HT-gpG"/>
                     <connections>
                         <outlet property="playBackView" destination="cBY-fv-mHx" id="jG9-hu-wcf"/>
                         <outlet property="playOrPauseButton" destination="ZCV-H4-2qv" id="Hjc-IW-jiP"/>
+                        <outlet property="rightView" destination="i02-2c-ZC3" id="RkV-BC-d3x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9w-x3-6TE" userLabel="First Responder" sceneMemberID="firstResponder"/>

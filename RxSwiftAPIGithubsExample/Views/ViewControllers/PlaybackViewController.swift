@@ -10,11 +10,13 @@ import UIKit
 import AVFoundation
 import RxSwift
 import RxCocoa
+import NetworkPlatform
 
 class PlaybackViewController: UIViewController {
 
     @IBOutlet weak var playBackView: UIView!
     @IBOutlet weak var playOrPauseButton: UIButton!
+    @IBOutlet weak var rightView: UIView!
     let viewModel = PlaybackViewModel()
     let disposeBag = DisposeBag()
 
@@ -108,6 +110,25 @@ class PlaybackViewController: UIViewController {
 
         viewModel.downloadVideo()
 
+//        let titleNavView = UIView()
+//        titleNavView.addSubview(rightView)
+//        rightView.translatesAutoresizingMaskIntoConstraints = false
+//        rightView.topAnchor.constraint(greaterThanOrEqualTo: titleNavView.topAnchor).isActive = true
+//        rightView.bottomAnchor.constraint(greaterThanOrEqualTo: titleNavView.bottomAnchor).isActive = true
+//        rightView.leadingAnchor.constraint(equalTo: titleNavView.leadingAnchor).isActive = true
+//        rightView.trailingAnchor.constraint(greaterThanOrEqualTo: titleNavView.trailingAnchor).isActive = true
+//        rightView.centerYAnchor.constraint(equalTo: titleNavView.centerYAnchor).isActive = true
+
+//        let label = rightView.subviews[1]
+//        titleNavView.addSubview(label)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.topAnchor.constraint(greaterThanOrEqualTo: titleNavView.topAnchor).isActive = true
+//        label.bottomAnchor.constraint(greaterThanOrEqualTo: titleNavView.bottomAnchor).isActive = true
+//        label.leadingAnchor.constraint(equalTo: titleNavView.leadingAnchor).isActive = true
+//        label.trailingAnchor.constraint(greaterThanOrEqualTo: titleNavView.trailingAnchor).isActive = true
+//        label.centerYAnchor.constraint(equalTo: titleNavView.centerYAnchor).isActive = true
+//
+//        navigationController?.navigationBar.topItem?.titleView = titleNavView
         logger.exit()
     }
 
@@ -116,6 +137,55 @@ class PlaybackViewController: UIViewController {
         super.viewDidAppear(animated)
 
 //        play()
+
+//        let titleNavView = UIView()
+//        titleNavView.addSubview(rightView)
+//        rightView.translatesAutoresizingMaskIntoConstraints = false
+//        rightView.topAnchor.constraint(greaterThanOrEqualTo: titleNavView.topAnchor).isActive = true
+//        rightView.bottomAnchor.constraint(greaterThanOrEqualTo: titleNavView.bottomAnchor).isActive = true
+//        rightView.leadingAnchor.constraint(equalTo: titleNavView.leadingAnchor).isActive = true
+//        rightView.trailingAnchor.constraint(greaterThanOrEqualTo: titleNavView.trailingAnchor).isActive = true
+//        rightView.centerYAnchor.constraint(equalTo: titleNavView.centerYAnchor).isActive = true
+
+//        let titleNavView = UIView()
+//        let label = rightView.subviews[1]
+//        titleNavView.addSubview(label)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.topAnchor.constraint(greaterThanOrEqualTo: titleNavView.topAnchor).isActive = true
+//        label.bottomAnchor.constraint(greaterThanOrEqualTo: titleNavView.bottomAnchor).isActive = true
+//        label.leadingAnchor.constraint(equalTo: titleNavView.leadingAnchor).isActive = true
+//        label.trailingAnchor.constraint(greaterThanOrEqualTo: titleNavView.trailingAnchor).isActive = true
+//        label.centerYAnchor.constraint(equalTo: titleNavView.centerYAnchor).isActive = true
+
+        let titleNavView = UIView()
+        titleNavView.addSubview(rightView)
+        rightView.translatesAutoresizingMaskIntoConstraints = false
+        rightView.topAnchor.constraint(equalTo: titleNavView.topAnchor).isActive = true
+        rightView.bottomAnchor.constraint(equalTo: titleNavView.bottomAnchor).isActive = true
+        rightView.leadingAnchor.constraint(equalTo: titleNavView.leadingAnchor).isActive = true
+        rightView.trailingAnchor.constraint(equalTo: titleNavView.trailingAnchor).isActive = true
+//        rightView.centerYAnchor.constraint(equalTo: titleNavView.centerYAnchor).isActive = true
+
+        navigationController?.navigationBar.topItem?.titleView = titleNavView
+
+//        navigationController?.navigationBar.topItem?.titleView = rightView
+        if let imageView = rightView.subviews[0] as? UIImageView {
+            Network<String>()
+                .requestDownload(urlString: "https://via.placeholder.com/150")
+                .map({ (filePath) -> UIImage? in
+                    let data = try Data(contentsOf: URL(string: filePath)!)
+                    // Not found image.
+                    //                let retImage = UIImage(contentsOfFile: filePath)
+                    //                return retImage
+                    let retImageData = UIImage(data: data)
+                    return retImageData
+                })
+//                .observeOn(ConcurrentMainScheduler.instance)
+                .subscribeOn(MainScheduler.asyncInstance)
+                .bind(to: imageView.rx.image)
+                .disposed(by: disposeBag)
+        }
+
         logger.exit()
     }
 
