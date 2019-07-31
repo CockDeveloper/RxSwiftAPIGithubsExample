@@ -14,6 +14,8 @@ import NetworkPlatform
 class MainViewController: UIViewController {
 
     @IBOutlet weak var apiGithubButton: UIButton!
+    @IBOutlet weak var testTimerButton: UIButton!
+
     let disposeBag = DisposeBag()
     let viewModel = MainViewModel()
     override func viewDidLoad() {
@@ -24,6 +26,19 @@ class MainViewController: UIViewController {
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel.tapAPIGitHubButton()
+            })
+            .disposed(by: disposeBag)
+
+        testTimerButton.rx.tap .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .subscribe(onNext: { [unowned self] _ in
+                let scheduler = ConcurrentDispatchQueueScheduler(qos: .userInteractive)
+                Observable<Int>.timer(.seconds(3), scheduler: scheduler)
+                    .debug()
+                    .subscribe(onCompleted: {
+                        logger.info("onCompleted")
+                    })
+                    .disposed(by: self.disposeBag)
+
             })
             .disposed(by: disposeBag)
 
